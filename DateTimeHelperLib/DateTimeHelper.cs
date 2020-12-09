@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DateTimeHelperLib
 {
@@ -11,7 +12,16 @@ namespace DateTimeHelperLib
 
         public static DateTime LastInMonth(this DateTime date)
         {
-            return new DateTime(date.Year, date.Month, DateTime.DaysInMonth(date.Year, date.Month));
+            return new DateTime(date.Year, date.Month, DateTime.DaysInMonth(date.Year, date.Month + 1));
+        }
+
+        public static IEnumerable<DateTime> Days(this DateTime date)
+        {
+            while (true)
+            {
+                yield return date;
+                date = date.AddDays(1);
+            }
         }
     }
 }
