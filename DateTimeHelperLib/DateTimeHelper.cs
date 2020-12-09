@@ -12,7 +12,7 @@ namespace DateTimeHelperLib
 
         public static DateTime LastInMonth(this DateTime date)
         {
-            return new DateTime(date.Year, date.Month, DateTime.DaysInMonth(date.Year, date.Month + 1));
+            return new DateTime(date.Year, date.Month, DateTime.DaysInMonth(date.Year, date.Month));
         }
 
         public static IEnumerable<DateTime> Days(this DateTime date)
